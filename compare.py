@@ -1,7 +1,7 @@
 from sys import maxsize
 from itertools import permutations
 import numpy as np
-V = 5
+V = 10
  
 # implementation of traveling Salesman Problem
 def travellingSalesmanProblem(graph, s):
@@ -35,7 +35,7 @@ def travellingSalesmanProblem(graph, s):
  
 # Driver Code
 if __name__ == "__main__":
-    mainPath = "cities-5-"
+    mainPath = "cities-10-"
     distancePath = mainPath + "distance.txt"
     costPath = mainPath + "cost.txt"
     distance = np.genfromtxt(distancePath, delimiter="\t")

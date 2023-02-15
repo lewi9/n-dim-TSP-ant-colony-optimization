@@ -10,18 +10,19 @@ class Ant:
         self.currentCity = startCity
 
 # Paths to files with matrix: distance and cost    
-mainPath = "cities-5-"
+mainPath = "cities-10-"
 distancePath = mainPath + "distance.txt"
 costPath = mainPath + "cost.txt"
 
 # Parameters of algorithm
 maxCycle = 500
 
-antsInCity = 10
-alpha = pheromoneWeight = 1
+antsInCity = 100
+alpha = pheromoneWeight = 3
 beta = cityVisibility = 1
-vaporizeFactor = 0.2
+#vaporizeFactor = 0.3
 Q = newPheromonFactor = 1
+
 # Read data from files
 distance = np.genfromtxt(distancePath, delimiter="\t")
 cost = np.genfromtxt(costPath, delimiter="\t")
@@ -38,19 +39,30 @@ distance = distance/np.max(distance)
 cost = cost/np.max(cost)
 cities = cost.shape[0]
 
+antsOnPath = 0
+
 mostEffectivePath = np.max(distance) * cities
-shortestPath = []
+shortestPath = list(np.arange(cities))
+
 # Build pheromone matrix with initial value
-pheromone = np.ones((cities, cities)) * abs(np.random.normal(0,1,1))
+pheromone = np.ones((cities, cities)) * abs(np.random.normal(0,0.1,1))
 
 ants = []
 
 # Algorithm
 for k in range(maxCycle):
+
+    #debug print
     if k % 50 == 0:
         print(f"iteration: {k} Shortest path: {mostEffectivePath*distanceMax}")
         print(pheromone)
-
+        print(antsOnPath)
+        
+    flagSame = 1
+    pattern = shortestPath
+    antsOnPath = 0
+    #newPheromone = pheromone * vaporizeFactor
+    newPheromone = pheromone * np.random.sample()
     #create ants
     for i in range(cities):
         for j in range(antsInCity):
@@ -67,10 +79,6 @@ for k in range(maxCycle):
             ant.tabooList.append(destinationCity)
 
     #check that all roads are the same and add pheromone
-    flagSame = 1
-    pattern = ants[0].tabooList
-    patternReverse = pattern.reverse()
-    anotherPath = 0
     for ant in ants:
         path = 0
 
@@ -78,42 +86,50 @@ for k in range(maxCycle):
         for i in range(cities):
             index = i-1
             path += distance[ant.tabooList[index]][ant.tabooList[i]]
-        if path < mostEffectivePath:
+        if path <= mostEffectivePath:
             mostEffectivePath = path
             shortestPath = ant.tabooList
 
         #add pheromone
         for i in range(cities):
             index = i-1
-            pheromone[ant.tabooList[i]][ant.tabooList[index]] *= (1-vaporizeFactor)
-            pheromone[ant.tabooList[i]][ant.tabooList[index]] += Q/path
-
+            newPheromone[ant.tabooList[i]][ant.tabooList[index]] += Q/path
+            
         #check path are the same
         rolled = 0
         for i in range(cities):
             if pattern == list(np.roll(ant.tabooList,i)):
                 rolled = 1
+                antsOnPath += 1
                 break
+        pattern.reverse()
         if rolled != 1:
             for i in range(cities):
-                if patternReverse == list(np.roll(ant.tabooList,i)):
+                if pattern == list(np.roll(ant.tabooList,i)):
                     rolled = 1
+                    antsOnPath += 1
+
         if rolled == 0:
             flagSame = 0
-            anotherPath += 1
+            
 
     #stop condition
     if flagSame == 1:
+        print(f"ended after {k+1} iterations")
         break
-
-    triu = np.triu(pheromone).T
-    tril = np.tril(pheromone).T
-    pheromone += triu + tril
-    A = np.ones((cities, cities))
-    A -= np.eye(cities)
-    pheromone *= A
+    
+    pheromone = np.copy(newPheromone)
         
+    
+    #triu = np.triu(pheromone).T
+    #tril = np.tril(pheromone).T
+    #pheromone += triu + tril
+    #A = np.ones((cities, cities))
+    #A -= np.eye(cities)
+    #pheromone *= A
+    
     ants.clear()
 
+print(pheromone)
 print(f"Shortest path: {shortestPath}\n")      
 print(f"Size of shortest path: {mostEffectivePath*np.max(distanceCopy)}\n") 
