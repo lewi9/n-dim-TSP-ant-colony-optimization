@@ -28,19 +28,22 @@ def travellingSalesmanProblem(graph, s):
         current_pathweight += graph[k][s]
  
         # update minimum
+        if current_pathweight < min_path:
+            previousPath = min_path
         min_path = min(min_path, current_pathweight)
-         
+
+    print(previousPath)
     return min_path
  
  
 # Driver Code
 if __name__ == "__main__":
-    mainPath = "cities-10-"
+    mainPath = "cities-10ns-"
     distancePath = mainPath + "distance.txt"
-    costPath = mainPath + "cost.txt"
+    #costPath = mainPath + "cost.txt"
     distance = np.genfromtxt(distancePath, delimiter="\t")
-    cost = np.genfromtxt(costPath, delimiter="\t")
-    # matrix representation of graph
+    #cost = np.genfromtxt(costPath, delimiter="\t")
+    ## matrix representation of graph
     graph = distance.tolist()
     s = 0
     print(travellingSalesmanProblem(graph, s))
