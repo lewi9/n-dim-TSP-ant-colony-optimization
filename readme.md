@@ -62,8 +62,7 @@ Algorytm ten jest system mrowiskowym, gdzie pewna populacja m-mrówek przeszukuj
 3. Zaktualizuj globalny ślad feromonowy dla najlepszy rozwiązań zgodnie ze wzorem:
     $\tau_{ij}(t+k) =  (1-\rho) * \tau_{ij}(t) + \rho*\frac{1}{L}$\
     gdzie:
-    L - sumaryczny koszt podróży dla danej trasy
-
+    L - sumaryczny koszt podróży dla danej trasy\
     Zaś dla pozostałych:\
     $\tau_{ij}(t+k) =  (1-\rho) * \tau_{ij}(t)$\
 
