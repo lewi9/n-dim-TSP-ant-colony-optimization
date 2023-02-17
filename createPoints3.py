@@ -14,7 +14,8 @@ mainDir = "cities-47-"
 distanceDir = mainDir + "distance.txt"
 costDir = mainDir + "cost.txt"
 pheromoneDir = "pheromone.txt"
-pointsDir = "points.txt"
+pointsDir = "points1.txt"
+paretoDir = "paretoFront1.txt
 delim = " "
 matricesNumber = 2
 
@@ -77,6 +78,13 @@ for k in range(maxCycle):
                 pointsCopy[i][j] *= maxes[j]
         saveToFile = np.reshape(pointsCopy, (len(pointsCopy),matricesNumber))
         np.savetxt(pointsDir, saveToFile, delimiter='\t')
+        paretoFrontCopy = np.copy(paretoFront)
+        
+        for i in range(len(paretoFrontCopy)):
+            for j in range(matricesNumber):
+                paretoFrontCopy[i][j] *= maxes[j]
+        saveToFile = np.reshape(paretoFrontCopy, (len(pointsCopy),matricesNumber))
+        np.savetxt(paretoDir, saveToFile, delimiter='\t')
         
     localPheromone = np.copy(pheromone)    
     ## create ants
@@ -165,3 +173,10 @@ for i in range(len(pointsCopy)):
         pointsCopy[i][j] *= maxes[j]
 saveToFile = np.reshape(pointsCopy, (len(pointsCopy),matricesNumber))
 np.savetxt(pointsDir, saveToFile, delimiter='\t')
+
+paretoFrontCopy = np.copy(paretoFront)
+for i in range(len(paretoFrontCopy)):
+    for j in range(matricesNumber):
+        paretoFrontCopy[i][j] *= maxes[j]
+saveToFile = np.reshape(paretoFrontCopy, (len(pointsCopy),matricesNumber))
+np.savetxt(paretoDir, saveToFile, delimiter='\t')

@@ -10,12 +10,12 @@ class Ant:
         self.currentCity = startCity
 
 ## Paths to files with matrix: distance and cost    
-mainDir = "cities-47-"
+mainDir = "cities-10ns-"
 distanceDir = mainDir + "distance.txt"
 costDir = mainDir + "cost.txt"
 pheromoneDir = "pheromone.txt"
 paretoFrontDir = "paretoFront.txt"
-delim = " "
+delim = "\t"
 matricesNumber = 2
 
 ## Parameters of algorithm
@@ -33,7 +33,7 @@ pheromoneZero = 0.1
 distance = np.genfromtxt(distanceDir, delimiter=delim)
 
 #cost = np.genfromtxt(costDir, delimiter=delim)
-cost = np.genfromtxt(costDir, delimiter=delim).T
+cost = np.genfromtxt(costDir, delimiter=delim)
 
 print("Distance matrix:")
 print(distance)
