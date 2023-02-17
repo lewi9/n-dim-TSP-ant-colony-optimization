@@ -33,9 +33,9 @@ Algorytm ten jest system mrowiskowym, gdzie pewna populacja m-mrówek przeszukuj
     $\alpha$ - współczynnik wagi śladu feromonowego\
     $\beta$ - współczynnik wagi heurystyki\
     $\tau$ - ślad feromonowy na krawędzi i-j\
-    $\eta$ - wartość heurystyczna dana wzorem:\
+    $\eta$ - wartość heurystyczna dana wzorem:
 
-    $\sum_{l=1}^{n}\frac{1}{d_{ijl}}$
+    $\sum_{l=1} ^{n}\frac{1}{d_{ijl}}$
 
     gdzie:\
     d - koszt podróży z jednego miasta do drugiego\
