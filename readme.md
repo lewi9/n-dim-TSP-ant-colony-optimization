@@ -97,18 +97,18 @@ Jest to dla przypadku, kiedy analizowany tylko 1-wymiar.\
 Dla przykładów 2-wymiarowych wizualizacje zostały umieszczone poniżej; aby zastosować dwie różne macierze posłużyłem się jedną macierzą, dla dystansu była ona w formie pierwotnej, dla ceny podróży była transponowana.\
 Wszystkie poniższe wizualizacje posiadają domyślne parametry: q = 0.6, $\alpha$ = 1, $\beta$ = 2, $\tau_0$ = 0.1, vaporizeFactor = 0.05, a ilość mrówek to liczba mrówek na miasto. Ponadto są to problemy *niesymetryczne*\
 10 miast:\
-![Visualization 2](Figure_2.png)\
+![Visualization 2](visualizations/Figure_2.png)\
 47 miast:\
-![Visualization 1](Figure_1.png)\
-![Visualization 3](Figure_3.png)\
-![Visualization 4](Figure_4.png)\
-![Visualization 5](Figure_5.png)\
-![Visualization 6](Figure_6.png)\
-![Visualization 7](Figure_7.png)\
-![Visualization 8](Figure_8.png)\
-![Visualization 9](Figure_9.png)\
-![Visualization 10](Figure_10.png)\
-![Visualization 11](Figure_11.png)\
+![Visualization 1](visualizations/Figure_1.png)\
+![Visualization 3](visualizations/Figure_3.png)\
+![Visualization 4](visualizations/Figure_4.png)\
+![Visualization 5](visualizations/Figure_5.png)\
+![Visualization 6](visualizations/Figure_6.png)\
+![Visualization 7](visualizations/Figure_7.png)\
+![Visualization 8](visualizations/Figure_8.png)\
+![Visualization 9](visualizations/Figure_9.png)\
+![Visualization 10](visualizations/Figure_10.png)\
+![Visualization 11](visualizations/Figure_11.png)\
 ## Dane
 Przykładowe macierze oraz znane optymalne rozwiązania można znaleźć na stronie: [TSPLIB] (http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/ “TSPLIB”)\
 Macierze pochodzące z tej strony należy przystować do używania przez program np. poprzez wycięcie odpowiednich wierszy z przodu, zastosowanie komendy\
@@ -128,5 +128,5 @@ done <plik_z_rezultatem_awk>
 I ponowne zastosowanie `awk '{$1=$1;print}'`
 
 ## Bibliografia
-![Programowanie mrowiskowe w procesie aproksymacji funkcji, Mariusz Boryczka](https://books.google.pl/books/about/Programowanie_mrowiskowe_w_procesie_apro.html?id=77qhBAAACAAJ&redir_esc=y)\
-![Ant colonies for the travelling salesman problem, Marco Dorigo](https://doi.org/10.1016/S0303-2647(97)01708-5)
+[Programowanie mrowiskowe w procesie aproksymacji funkcji, Mariusz Boryczka](https://books.google.pl/books/about/Programowanie_mrowiskowe_w_procesie_apro.html?id=77qhBAAACAAJ&redir_esc=y)\
+[Ant colonies for the travelling salesman problem, Marco Dorigo](https://doi.org/10.1016/S0303-2647(97)01708-5)
