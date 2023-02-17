@@ -94,8 +94,11 @@ Dla 5 i 10 miast algorytm był w stanie w dość krótkim czasie wskazać optyma
 Dla zbioru 47 miast algorytm w trakcie 300 iteracji oraz 30 mrówek na miasto, nie był w stanie wskazać najbardziej optymalnego znanego rozwiązania. Wynosi ono: 1776, zaś algorytm zwrócił wartość 1805.\
 Jest to dla przypadku, kiedy analizowany tylko 1-wymiar.\
 \
-Dla przykładów 2-wymiarowych wizualizacje zostaną umieszczone; aby zastosować dwie różne macierze posłużyłem się jedną macierzą, dla dystansu była ona w formie pierwotnej, dla ceny podróży była transponowana.\
-Inne przykładowe macierze oraz znane optymalne rozwiązania można znaleźć na stronie: [TSPLIB] (http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/ “TSPLIB”)\
+Dla przykładów 2-wymiarowych wizualizacje zostaną umieszczone; aby zastosować dwie różne macierze posłużyłem się jedną macierzą, dla dystansu była ona w formie pierwotnej, dla ceny podróży była transponowana.
+
+![Visualization 1](Figure_1.png)
+## Dane
+Przykładowe macierze oraz znane optymalne rozwiązania można znaleźć na stronie: [TSPLIB] (http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/ “TSPLIB”)\
 Macierze pochodzące z tej strony należy przystować do używania przez program np. poprzez wycięcie odpowiednich wierszy z przodu, zastosowanie komendy\
 `awk '{$1=$1;print}'` następnie:
 ```
@@ -113,5 +116,5 @@ done <plik_z_rezultatem_awk>
 I ponowne zastosowanie `awk '{$1=$1;print}'`
 
 ## Bibliografia
-[Programowanie mrowiskowe w procesie aproksymacji funkcji, Mariusz Boryczka] (https://books.google.pl/books/about/Programowanie_mrowiskowe_w_procesie_apro.html?id=77qhBAAACAAJ&redir_esc=y “Programowanie mrowiskowe w procesie aproksymacji funkcji, Mariusz Boryczka”)\
-[Ant colonies for the travelling salesman problem, Marco Dorigo] (https://doi.org/10.1016/S0303-2647(97)01708-5 “Ant colonies for the travelling salesman problem, Marco Dorigo”)\
+[Programowanie mrowiskowe w procesie aproksymacji funkcji, Mariusz Boryczka] (https://books.google.pl/books/about/Programowanie_mrowiskowe_w_procesie_apro.html?id=77qhBAAACAAJ&redir_esc=y)\
+[Ant colonies for the travelling salesman problem, Marco Dorigo] (https://doi.org/10.1016/S0303-2647(97)01708-5)
