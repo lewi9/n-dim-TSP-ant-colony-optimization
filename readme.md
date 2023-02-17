@@ -19,7 +19,7 @@ Algorytm ten jest system mrowiskowym, gdzie pewna populacja m-mrówek przeszukuj
 
 ### Kilka kroków opisujących działanie algorytmu:
 
-1. W każdym mieście rozstaw $\frac{m}{k} mrówek. W moim algorytmie jest to zmienna `antsInCity`, zatem sumarycznie mrówek jest antsInCity * k.
+1. W każdym mieście rozstaw $m \over k$ mrówek. W moim algorytmie jest to zmienna `antsInCity`, zatem sumarycznie mrówek jest antsInCity * k.
 
 2. Każda mrówka wykonuje krok do jednego z dostępnych miast (najpierw jest ich k-1, potem k-2, k-3, ... 1).\
     Wylosuj wartość z zakresu [0.0,1.0). Jeśli mniejsza niż *q* to eksploracja, w przeciwnym wypadku eksploatacja.\
@@ -35,7 +35,7 @@ Algorytm ten jest system mrowiskowym, gdzie pewna populacja m-mrówek przeszukuj
     $\tau$ - ślad feromonowy na krawędzi i-j\
     $\eta$ - wartość heurystyczna dana wzorem:\
 
-    $\sum_{l=1}^{n}{ 1 \over d_{ijl}}$
+    $\sum_{l=1}^{n}\frac{1}{d_{ijl}}$
 
     gdzie:\
     d - koszt podróży z jednego miasta do drugiego\
