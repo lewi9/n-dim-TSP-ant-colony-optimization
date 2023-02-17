@@ -24,37 +24,55 @@ Algorytm ten jest system mrowiskowym, gdzie pewna populacja m-mrówek przeszukuj
 2. Każda mrówka wykonuje krok do jednego z dostępnych miast (najpierw jest ich k-1, potem k-2, k-3, ... 1).
     Wylosuj wartość z zakresu [0.0,1.0). Jeśli mniejsza niż *q* to eksploracja, w przeciwnym wypadku eksploatacja.
     Eksploracja polega na wyborze z dostępnych miast według prawdopodobieństwa danego wzorem:.
-    $$ \tau_{ij}^\alpha * \mi_{ij}^\beta \over{\sum{r=1} \tau_{ir} ^\alpha * \mi{ir}^\beta} $$
+    ```math
+    \tau_{ij}^\alpha * \eta_{ij}^\beta \over{\sum{r=1} \tau_{ir} ^\alpha * \eta{ir}^\beta}
+    ```
     gdzie:
     i - miasto obecne
     j - miasto docelowe
     $\alpha$ - współczynnik wagi śladu feromonowego
     $\beta$ - współczynnik wagi heurystyki
     $\tau$ - ślad feromonowy na krawędzi i-j
-    $\mi$ - wartość heurystyczna dana wzorem:
-    $$ \sum{l=1}^{n} 1 \over d_{ijl} $$
+    $\eta$ - wartość heurystyczna dana wzorem:
+    ```math
+    \sum{l=1}^{n} 1 \over d_{ijl}
+    ```
     gdzie:
     d - koszt podróży z jednego miasta do drugiego
     l - kolejne wartości (dystans, cena, czas ...)
 
     Eksploatacja polega na wyborze miasta, które ma największą wartość wskaźnika danego wzorem:
-    $$ \tau_{ij}^\alpha * \mi_{ij}^\beta $$
+    ```math
+    \tau_{ij}^\alpha * \eta_{ij}^\beta
+    ```
 
-    Natępnie następuje aktualizacja lokalnego feromonu zgodnie ze wzorem:
-    $$ \tau_{ij}(t+1) = (1-\ro) * \tau_{ij}(t) + \ro*\tau_0 $$
+    Natępnie następuje aktualizacja lokalnego feromonu zgodnie ze wzorami:
+    Dla krawędzi, przez które przeszła mrówka (jedna lub więcej):
+    ```math
+    \tau_{ij}(t+1) = (1-\rho) * \tau_{ij}(t) + \rho*\tau_0
+    ```
+    Dla pozostałych:
+    ```math
+    \tau_{ij}(t+1) = (1-\rho) * \tau_{ij}(t)
+    ```
+
     gdzie:
-    $\ro$ - vaporize Factor 0 <= $\ro$ <= 1 (symulacja parowania śladu feromonowego)
+    $\rho$ - vaporize Factor 0 <= $\rho$ <= 1 (symulacja parowania śladu feromonowego)
     $\tau_0$ - wartość inicjalna śladu feromonowego dla krawędzi - `pheromoneZero`
 
     Powtarzaj dopóki każda mrówka nie odwiedzi k-miast.
 
 3. Zaktualizuj globalny ślad feromonowy dla najlepszy rozwiązań zgodnie ze wzorem:
-    $$ \tau_{ij}(t+k) =  (1-\ro) * \tau_{ij}(t) + \ro*\frac{1}{L} $$
+    ```math
+    \tau_{ij}(t+k) =  (1-\rho) * \tau_{ij}(t) + \rho*\frac{1}{L}
+    ```
     gdzie:
     L - sumaryczny koszt podróży dla danej trasy
 
     Zaś dla pozostałych:
-    $$ \tau_{ij}(t+k) =  (1-\ro) * \tau_{ij}(t) $$
+    ```math
+    \tau_{ij}(t+k) =  (1-\rho) * \tau_{ij}(t)
+    ```
 
 4. Wykonuj krok 2-3 dopóki nie zostanie zrealizowana zadana liczba iteracji `maxCylce`.
 
