@@ -19,9 +19,9 @@ delim = " "
 matricesNumber = 2
 
 ## Parameters of algorithm
-maxCycle = 200
+maxCycle = 300
 
-antsInCity = 20
+antsInCity = 30
 
 alpha = pheromoneWeight = 1
 beta = cityVisibility = 2
@@ -68,9 +68,14 @@ print(f"Biggest distance beetwen two cities: {distanceMax}")
 for k in range(maxCycle):
 
     if k%10 == 9:
-        print(f"Iter: {k}")
-        saveToFile = np.reshape(paretoFront, (len(paretoFront),matricesNumber))
-        saveToFile *= maxes
+        print(f"Iter: {k+1}")
+        paretoFrontCopy = np.copy(paretoFront)
+        for i in range(len(paretoFrontCopy)):
+            for j in range(matricesNumber):
+                paretoFrontCopy[i][j] *= maxes[j]
+        saveToFile = np.reshape(paretoFrontCopy, (len(paretoFrontCopy),matricesNumber))
+        # not saveToFile *= maxes, because I have defined maxes in 1x2 dim, and when matricesNumber == 1 error occured
+        
         np.savetxt(paretoFrontDir, saveToFile, delimiter='\t')
         np.savetxt(pheromoneDir, pheromone, delimiter='\t')
     localPheromone = np.copy(pheromone)    
