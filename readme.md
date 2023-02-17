@@ -48,7 +48,7 @@ Algorytm ten jest system mrowiskowym, gdzie pewna populacja m-mrówek przeszukuj
 \
     Natępnie zostaje zaktualizowany lokalny feromon zgodnie ze wzorami:\
     Dla krawędzi, przez które przeszła mrówka (jedna lub więcej):\
-    $\tau_{ij}(t+1) = (1-\rho) * \tau_{ij}(t) + \rho*\tau_0$
+    $\tau_{ij}(t+1) = (1-\rho) * \tau_{ij}(t) + \rho*\tau_0$\
     Dla pozostałych:\
     $\tau_{ij}(t+1) = (1-\rho) * \tau_{ij}(t)$
 
@@ -62,10 +62,9 @@ Algorytm ten jest system mrowiskowym, gdzie pewna populacja m-mrówek przeszukuj
 3. Zaktualizuj globalny ślad feromonowy dla najlepszy rozwiązań zgodnie ze wzorem:
     $\tau_{ij}(t+k) =  (1-\rho) * \tau_{ij}(t) + \rho*\frac{1}{L}$\
     gdzie:
-    L - sumaryczny koszt podróży dla danej trasy\
+    L - sumaryczny koszt podróży dla danej trasy
 
-    Zaś dla pozostałych:
-
+    Zaś dla pozostałych:\
     $\tau_{ij}(t+k) =  (1-\rho) * \tau_{ij}(t)$\
 
 
