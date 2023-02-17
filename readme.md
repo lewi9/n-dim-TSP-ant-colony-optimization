@@ -111,3 +111,7 @@ while IFS=" " read -a fields; do
 done <plik_z_rezultatem_awk>
 ```
 I ponowne zastosowanie `awk '{$1=$1;print}'`
+
+## Bibliografia
+[Programowanie mrowiskowe w procesie aproksymacji funkcji, Mariusz Boryczka] (https://books.google.pl/books/about/Programowanie_mrowiskowe_w_procesie_apro.html?id=77qhBAAACAAJ&redir_esc=y “Programowanie mrowiskowe w procesie aproksymacji funkcji, Mariusz Boryczka”)\
+[Ant colonies for the travelling salesman problem, Marco Dorigo] (https://doi.org/10.1016/S0303-2647(97)01708-5 “Ant colonies for the travelling salesman problem, Marco Dorigo”)\
