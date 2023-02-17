@@ -47,9 +47,9 @@ Algorytm ten jest system mrowiskowym, gdzie pewna populacja m-mrówek przeszukuj
 
 \
     Natępnie zostaje zaktualizowany lokalny feromon zgodnie ze wzorami:\
-    Dla krawędzi, przez które przeszła mrówka (jedna lub więcej):
+    Dla krawędzi, przez które przeszła mrówka (jedna lub więcej):\
     $\tau_{ij}(t+1) = (1-\rho) * \tau_{ij}(t) + \rho*\tau_0$
-    Dla pozostałych:
+    Dla pozostałych:\
     $\tau_{ij}(t+1) = (1-\rho) * \tau_{ij}(t)$
 
 \
