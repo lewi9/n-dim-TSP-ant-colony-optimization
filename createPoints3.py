@@ -14,15 +14,15 @@ mainDir = "cities-47-"
 distanceDir = mainDir + "distance.txt"
 costDir = mainDir + "cost.txt"
 pheromoneDir = "pheromone.txt"
-pointsDir = "points1.txt"
-paretoDir = "paretoFront1.txt
+pointsDir = "points8.txt"
+paretoDir = "paretoFront8.txt"
 delim = " "
 matricesNumber = 2
 
 ## Parameters of algorithm
-maxCycle = 400
+maxCycle = 1000
 
-antsInCity = 20
+antsInCity = 10
 
 alpha = pheromoneWeight = 1
 beta = cityVisibility = 2
@@ -83,7 +83,7 @@ for k in range(maxCycle):
         for i in range(len(paretoFrontCopy)):
             for j in range(matricesNumber):
                 paretoFrontCopy[i][j] *= maxes[j]
-        saveToFile = np.reshape(paretoFrontCopy, (len(pointsCopy),matricesNumber))
+        saveToFile = np.reshape(paretoFrontCopy, (len(paretoFrontCopy),matricesNumber))
         np.savetxt(paretoDir, saveToFile, delimiter='\t')
         
     localPheromone = np.copy(pheromone)    
@@ -178,5 +178,5 @@ paretoFrontCopy = np.copy(paretoFront)
 for i in range(len(paretoFrontCopy)):
     for j in range(matricesNumber):
         paretoFrontCopy[i][j] *= maxes[j]
-saveToFile = np.reshape(paretoFrontCopy, (len(pointsCopy),matricesNumber))
+saveToFile = np.reshape(paretoFrontCopy, (len(paretoFrontCopy),matricesNumber))
 np.savetxt(paretoDir, saveToFile, delimiter='\t')

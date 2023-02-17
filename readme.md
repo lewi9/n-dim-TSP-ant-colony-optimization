@@ -94,8 +94,9 @@ Dla 5 i 10 miast algorytm był w stanie w dość krótkim czasie wskazać optyma
 Dla zbioru 47 miast algorytm w trakcie 300 iteracji oraz 30 mrówek na miasto, nie był w stanie wskazać najbardziej optymalnego znanego rozwiązania. Wynosi ono: 1776, zaś algorytm zwrócił wartość 1805.\
 Jest to dla przypadku, kiedy analizowany tylko 1-wymiar.\
 \
-Dla przykładów 2-wymiarowych wizualizacje zostaną umieszczone; aby zastosować dwie różne macierze posłużyłem się jedną macierzą, dla dystansu była ona w formie pierwotnej, dla ceny podróży była transponowana.\
-10 miast - niesymetryczne:\
+Dla przykładów 2-wymiarowych wizualizacje zostały umieszczone poniżej; aby zastosować dwie różne macierze posłużyłem się jedną macierzą, dla dystansu była ona w formie pierwotnej, dla ceny podróży była transponowana.\
+Wszystkie poniższe wizualizacje posiadają domyślne parametry: q = 0.6, $\alpha$ = 1, $\beta$ = 2, $\tau_0$ = 0.1, a ilość mrówek to liczba mrówek na miasto. Ponadto są to problemy *niesymetryczne*\
+10 miast:\
 ![Visualization 2](Figure_2.png)\
 47 miast:\
 ![Visualization 1](Figure_1.png)
