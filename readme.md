@@ -64,8 +64,7 @@ Algorytm ten jest system mrowiskowym, gdzie pewna populacja m-mrówek przeszukuj
     gdzie:
     L - sumaryczny koszt podróży dla danej trasy\
     Zaś dla pozostałych:\
-    $\tau_{ij}(t+k) =  (1-\rho) * \tau_{ij}(t)$\
-
+    $\tau_{ij}(t+k) =  (1-\rho) * \tau_{ij}(t)$
 
 4. Wykonuj krok 2-3 dopóki nie zostanie zrealizowana zadana liczba iteracji `maxCylce`.
 
