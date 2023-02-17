@@ -12,20 +12,20 @@ Przykład macierzy:\
 490	338	901	0	    404\
 781	390	242	404	0\
 \
-Gdzie wiersze i kolumny odpowiadają kolejnym miastom, zatem dystans pomiędzy miastem numer 0 i 3 będzie miał wartość 490
+Gdzie wiersze i kolumny odpowiadają kolejnym miastom, zatem dystans pomiędzy miastem numer 0 i 3 będzie miał wartość 490.
 
 ## Działanie algorytmu
 Algorytm ten jest system mrowiskowym, gdzie pewna populacja m-mrówek przeszukuje przestrzeń możliwych rozwiązań, pozostawiając za sobą ślad feromonowy. Jeśli przestrzeń rozwiązań jest grafem skierowanym, wierzchołki symbolizują miasta, to ślad feromonowo będzie się odkładał na krawędziach łączących dwa wierzchołki. Każda mrówka staje przed wyborem kolejnego miasta do którego się uda, destynacja obierana jest na podstawie wartości kosztu takiej podróży (minimalizacja n-wartości np. dystansu, ceny) oraz śladu feromonowego. Odwiedzone już miasta dodawane są do listy tabu, zatem mrówka może wybierać tylko miasta jeszcze nieodwiedzone. Po każdym takim przejściu odkłada się pewna ilość feromonu (feromon lokalny), zaś po całym cyklu (m-mrówek przejdzie przez k-miast) rozwiązania dotychczas najbardziej optymalne premiowane są dodatkową porcją śladu feromonowego (feromon globalny). Po wykonaniu i-cykli algorytm kończy działanie i zwracany zbiór optymalnych rozwiązań. Jeżeli n równa się 1, to wtedy jest to klasyczny problem komiwojażera.
 
 ### Kilka kroków opisujących działanie algorytmu:
 
-1. W każdym mieście rozstaw $\frac{m}{k} mrówek. W moim algorytmie jest to zmienna `antsInCity`, zatem sumarycznie mrówek jest antsInCity * k.\
+1. W każdym mieście rozstaw $\frac{m}{k} mrówek. W moim algorytmie jest to zmienna `antsInCity`, zatem sumarycznie mrówek jest antsInCity * k.
 
 2. Każda mrówka wykonuje krok do jednego z dostępnych miast (najpierw jest ich k-1, potem k-2, k-3, ... 1).\
     Wylosuj wartość z zakresu [0.0,1.0). Jeśli mniejsza niż *q* to eksploracja, w przeciwnym wypadku eksploatacja.\
-    Eksploracja polega na wyborze z dostępnych miast według prawdopodobieństwa danego wzorem:\
+    Eksploracja polega na wyborze z dostępnych miast według prawdopodobieństwa danego wzorem:
 
-    $\tau_{ij}^\alpha * \eta_{ij}^\beta \over{\sum{r=1} \tau_{ir} ^\alpha * \eta{ir}^\beta}$\
+    $\tau_{ij}^\alpha * \eta_{ij}^\beta \over{\sum_{r=1} \tau_{ir} ^\alpha * \eta_{ir}^\beta}$
 
     gdzie:\
     i - miasto obecne\
@@ -35,25 +35,22 @@ Algorytm ten jest system mrowiskowym, gdzie pewna populacja m-mrówek przeszukuj
     $\tau$ - ślad feromonowy na krawędzi i-j\
     $\eta$ - wartość heurystyczna dana wzorem:\
 
-    $\sum{l=1}^{n} 1 \over d_{ijl}$\
+    $\sum_{l=1}^{n}{ 1 \over d_{ijl}}$
 
     gdzie:\
     d - koszt podróży z jednego miasta do drugiego\
-    l - kolejne wartości (dystans, cena, czas ...)\
+    l - kolejne wartości (dystans, cena, czas ...)
 
-    Eksploatacja polega na wyborze miasta, które ma największą wartość wskaźnika danego wzorem:\
+    Eksploatacja polega na wyborze miasta, które ma największą wartość wskaźnika danego wzorem:
 
-    $\tau_{ij}^\alpha * \eta_{ij}^\beta$\
+    $\tau_{ij}^\alpha * \eta_{ij}^\beta$
 
 \
-    Natępnie następuje aktualizacja lokalnego feromonu zgodnie ze wzorami:\
-    Dla krawędzi, przez które przeszła mrówka (jedna lub więcej):\
-
-    $\tau_{ij}(t+1) = (1-\rho) * \tau_{ij}(t) + \rho*\tau_0$\
-
-    Dla pozostałych:\
-
-    $\tau_{ij}(t+1) = (1-\rho) * \tau_{ij}(t)$\
+    Natępnie zostaje zaktualizowany lokalny feromon zgodnie ze wzorami:\
+    Dla krawędzi, przez które przeszła mrówka (jedna lub więcej):
+    $\tau_{ij}(t+1) = (1-\rho) * \tau_{ij}(t) + \rho*\tau_0$
+    Dla pozostałych:
+    $\tau_{ij}(t+1) = (1-\rho) * \tau_{ij}(t)$
 
 \
     gdzie:\
@@ -62,19 +59,17 @@ Algorytm ten jest system mrowiskowym, gdzie pewna populacja m-mrówek przeszukuj
 \
     Powtarzaj dopóki każda mrówka nie odwiedzi k-miast.\
 \
-3. Zaktualizuj globalny ślad feromonowy dla najlepszy rozwiązań zgodnie ze wzorem:\
-
+3. Zaktualizuj globalny ślad feromonowy dla najlepszy rozwiązań zgodnie ze wzorem:
     $\tau_{ij}(t+k) =  (1-\rho) * \tau_{ij}(t) + \rho*\frac{1}{L}$\
-
-    gdzie:\
+    gdzie:
     L - sumaryczny koszt podróży dla danej trasy\
-\
-    Zaś dla pozostałych:\
+
+    Zaś dla pozostałych:
 
     $\tau_{ij}(t+k) =  (1-\rho) * \tau_{ij}(t)$\
 
-\
-4. Wykonuj krok 2-3 dopóki nie zostanie zrealizowana zadana liczba iteracji `maxCylce`.\
+
+4. Wykonuj krok 2-3 dopóki nie zostanie zrealizowana zadana liczba iteracji `maxCylce`.
 
 ### Parametry, które może ustawić użytkownik
 `maxCycle` - zadana liczba \
@@ -87,7 +82,7 @@ Algorytm ten jest system mrowiskowym, gdzie pewna populacja m-mrówek przeszukuj
 \
 Ponadto w programie znajduje się sekcja, gdzie mogą być ustawianie ścieżki do odpowiednich plików oraz delimiter, ważne jest, aby dane były zgodne ze wzorcem ładowania dla funkcji `np.genfromtxt`.\
 \
-Dodatkowo wprowadzane macierze są normalizowane.\
+Dodatkowo wprowadzane macierze są normalizowane.
 
 ## Rezultaty działań
 Skrypty createPoints służą do tego, aby wykreować chmurę rozwiązań i móc ją porównać z wyznaczonym pareto frontem.\
