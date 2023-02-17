@@ -94,11 +94,10 @@ Dla 5 i 10 miast algorytm był w stanie w dość krótkim czasie wskazać optyma
 Dla zbioru 47 miast algorytm w trakcie 300 iteracji oraz 30 mrówek na miasto, nie był w stanie wskazać najbardziej optymalnego znanego rozwiązania. Wynosi ono: 1776, zaś algorytm zwrócił wartość 1805.\
 Jest to dla przypadku, kiedy analizowany tylko 1-wymiar.\
 \
-Dla przykładów 2-wymiarowych wizualizacje zostaną umieszczone; aby zastosować dwie różne macierze posłużyłem się jedną macierzą, dla dystansu była ona w formie pierwotnej, dla ceny podróży była transponowana.
-\10 miast - niesymetryczne:
+Dla przykładów 2-wymiarowych wizualizacje zostaną umieszczone; aby zastosować dwie różne macierze posłużyłem się jedną macierzą, dla dystansu była ona w formie pierwotnej, dla ceny podróży była transponowana.\
+10 miast - niesymetryczne:\
 ![Visualization 2](Figure_2.png)
-
-\47 miast:
+47 miast:\
 ![Visualization 1](Figure_1.png)
 ## Dane
 Przykładowe macierze oraz znane optymalne rozwiązania można znaleźć na stronie: [TSPLIB] (http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/ “TSPLIB”)\
