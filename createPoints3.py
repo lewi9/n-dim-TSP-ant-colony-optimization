@@ -9,20 +9,20 @@ class Ant:
         self.tabooList = [startCity,]
         self.currentCity = startCity
 
-## Paths to files with matrix: distance and cost    
-mainDir = "cities-47-"
+## Paths to files with matrix: distance and cost
+number = 16
+mainDir = "data/cities-47-"
 distanceDir = mainDir + "distance.txt"
 costDir = mainDir + "cost.txt"
-pheromoneDir = "pheromone.txt"
-pointsDir = "points8.txt"
-paretoDir = "paretoFront8.txt"
+pointsDir = f"results/points{number}.txt"
+paretoDir = f"results/paretoFront{number}.txt"
 delim = " "
 matricesNumber = 2
 
 ## Parameters of algorithm
-maxCycle = 1000
+maxCycle = 300
 
-antsInCity = 10
+antsInCity = 30
 
 alpha = pheromoneWeight = 1
 beta = cityVisibility = 2
@@ -129,28 +129,23 @@ for k in range(maxCycle):
         points.append(path)
         
         ## update pareto solutions
+        indexes = []
         flagAdd = 1
-        for elem in paretoFront:
-            validArray = np.zeros((matricesNumber,1))
-            for i in range(matricesNumber):
-                if path[i]<elem[i]:
-                    validArray[i] = 1
-            if np.sum(validArray) == matricesNumber:
-                flagStop = 0
-                for i in range(len(paretoFront)):
-                    flagSame = 1
-                    for j in range(len(elem)):
-                        if elem[j] != paretoFront[i][j]:
-                            flagSame = 0
-                    if flagSame == 1:
-                        paretoFront.pop(i)
-                        paretoPath.pop(i)
-                        flagStop = 1
-                        break
-                    if flagStop == 1:
-                        break
-            if np.sum(validArray) == 0:
+        for i in range(len(paretoFront)):
+            validArray = np.linspace(0,0,matricesNumber)
+            for j in range(matricesNumber):
+                if path[j] < paretoFront[i][j]:
+                    validArray[j] = 1
+                elif path[j] > paretoFront[i][j]:
+                    validArray[j] = -1
+            if 1 in validArray and not -1 in validArray:
+                indexes.append(i)
+            if -1 in validArray and not 1 in validArray:
                 flagAdd = 0
+            if not 1 in validArray and not -1 in validArray:
+                flagAdd = 0
+        paretoFront = [i for j,i in enumerate(paretoFront) if j not in indexes]
+        paretoPath = [i for j,i in enumerate(paretoPath) if j not in indexes]
         if flagAdd == 1:
             paretoFront.append(path)
             paretoPath.append(ant.tabooList)

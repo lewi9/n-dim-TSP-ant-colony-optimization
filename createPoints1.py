@@ -29,7 +29,7 @@ def createPoints(graph, graph2, s):
  
 # Driver Code
 if __name__ == "__main__":
-    mainPath = "cities-10ns-"
+    mainPath = "data/cities-10ns-"
     distancePath = mainPath + "distance.txt"
     costPath = mainPath + "cost.txt"
     delim = "\t"
@@ -41,4 +41,4 @@ if __name__ == "__main__":
     s = 0
     points = createPoints(graph, graph2, s)
     saveToFile = np.reshape(points, (len(points),2))
-    np.savetxt("points.txt", saveToFile, delimiter='\t')
+    np.savetxt("results/points.txt", saveToFile, delimiter='\t')
