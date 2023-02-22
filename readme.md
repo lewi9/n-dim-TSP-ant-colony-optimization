@@ -110,6 +110,7 @@ Wszystkie poniższe wizualizacje posiadają domyślne parametry: q = 0.6, $\alph
 ![Visualization 9](figures/Figure_9.png)\
 ![Visualization 10](figures/Figure_10.png)\
 ![Visualization 11](figures/Figure_11.png)\
+![Visualization 12](figures/Pie_11.png)
 ## Dane
 Przykładowe macierze oraz znane optymalne rozwiązania można znaleźć na stronie: [TSPLIB] (http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/ “TSPLIB”)\
 Macierze pochodzące z tej strony należy przystować do używania przez program np. poprzez wycięcie odpowiednich wierszy z przodu, zastosowanie komendy\
