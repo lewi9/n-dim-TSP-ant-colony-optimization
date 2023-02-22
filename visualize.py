@@ -2,15 +2,15 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-lowerLimitPoints = 0
-upperLimitPoints = 0 + 1
+lowerLimitPoints = 1
+upperLimitPoints = 10 + 1
 
-lowerLimitPareto = 0
-upperLimitPareto = 0 + 1
+lowerLimitPareto = 1
+upperLimitPareto = 10 + 1
 
-file = "figures/Figure_111.png"
+file = "figures/Figure_11.png"
 
-title = "Pareto Front 10-cities-ns vs all solutions of that problem"
+title = "Pareto Front 47-cities-ns 10 simulations vs all solutions of 10 simulations"
 
 cols = ["distance","cost"]
 
@@ -24,12 +24,15 @@ paretoFrontPlot = pd.DataFrame(columns=cols)
 paretoFrontPlot = paretoFrontPlot.drop_duplicates()
              
 for index, row in paretoFront.iterrows():
-    flag = 0
+    flagAdd = 1
     for index2, row2 in paretoFront.iterrows():
+        flagSecond = 0
         for colname in cols:
             if row[colname] > row2[colname]:
-                flag += 1
-    if flag != len(cols):
+                flagSecond += 1
+        if flagSecond == len(cols):
+            flagAdd = 0
+    if flagAdd == 1:
         dictionary = {cols[0] : [row.values[0]], cols[1] : [row.values[1]]}
         df = pd.DataFrame(dictionary)
         paretoFrontPlot = pd.concat([df,paretoFrontPlot])
