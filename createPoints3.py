@@ -10,7 +10,7 @@ class Ant:
         self.currentCity = startCity
 
 ## Paths to files with matrix: distance and cost
-number = 16
+number = 12
 mainDir = "data/cities-47-"
 distanceDir = mainDir + "distance.txt"
 costDir = mainDir + "cost.txt"
@@ -20,9 +20,9 @@ delim = " "
 matricesNumber = 2
 
 ## Parameters of algorithm
-maxCycle = 300
+maxCycle = 250
 
-antsInCity = 30
+antsInCity = 100
 
 alpha = pheromoneWeight = 1
 beta = cityVisibility = 2

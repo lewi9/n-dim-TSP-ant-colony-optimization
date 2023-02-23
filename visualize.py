@@ -6,13 +6,13 @@ import copy
 lowerLimitPoints = 1
 upperLimitPoints = 10 + 1
 
-lowerLimitPareto = 1
-upperLimitPareto = 10 + 1
+lowerLimitPareto = 11
+upperLimitPareto = 11 + 1
 
-file = "figures/Figure_11.png"
-pieChart = "figures/Pie_11.png"
+file = "figures/Figure_12.png"
+#pieChart = "figures/Pie_11.png"
 
-title = "Pareto Front 47-cities-ns 10 simulations vs all solutions of 10 simulations"
+title = "Pareto Front 47-cities-ns (250 iterations, 100 ants) vs all solutions of 10 simulations"
 
 cols = ["distance","cost"]
 
@@ -61,5 +61,5 @@ plt.close()
 fig,ax = plt.subplots(1,1,figsize=(10,10))
 ax.pie(np.array(paretoFrontPlot["category"].value_counts().values), labels = paretoFrontPlot["category"].value_counts().index)
 ax.set_title("Contribution of the simulation to the final result - 47-cities-ns")
-plt.savefig(pieChart)
+#plt.savefig(pieChart)
 plt.close()
