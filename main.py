@@ -2,6 +2,7 @@
 ## traveling saleman
 
 import numpy as np
+from tqdm import tqdm
 
 class Ant:
     def __init__(self, startCity):
@@ -10,17 +11,17 @@ class Ant:
         self.currentCity = startCity
 
 ## Paths to files with matrix: distance and cost    
-mainDir = "data/cities-10ns-"
+mainDir = "data/cities-70-"
 distanceDir = mainDir + "distance.txt"
 costDir = mainDir + "cost.txt"
-paretoFrontDir = "results/paretoFront.txt"
-delim = "\t"
-matricesNumber = 2
+paretoFrontDir = "results/paretoFront71.txt"
+delim = " "
+matricesNumber = 1
 
 ## Parameters of algorithm
-maxCycle = 300
+maxCycle = 400
 
-antsInCity = 30
+antsInCity = 150
 
 alpha = pheromoneWeight = 1
 beta = cityVisibility = 2
@@ -64,7 +65,7 @@ ants = []
 print(f"Biggest distance beetwen two cities: {distanceMax}")
 
 ## Algorithm
-for k in range(maxCycle):
+for k in tqdm(range(maxCycle), ascii=True, desc="Main"):
 
     if k%10 == 9:
         print(f"Iter: {k+1}")

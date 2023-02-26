@@ -6,10 +6,10 @@ import copy
 lowerLimitPoints = 1
 upperLimitPoints = 10 + 1
 
-lowerLimitPareto = 11
-upperLimitPareto = 11 + 1
+lowerLimitPareto = 12
+upperLimitPareto = 12 + 1
 
-file = "figures/Figure_12.png"
+file = "figures/Imported_savannah.png"
 #pieChart = "figures/Pie_11.png"
 
 title = "Pareto Front 47-cities-ns (250 iterations, 100 ants) vs all solutions of 10 simulations"

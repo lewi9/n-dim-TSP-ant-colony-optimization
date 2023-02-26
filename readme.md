@@ -93,6 +93,7 @@ Badania zostały przeprowadzone na zbiorze 5,10,47 miast.\
 Dla 5 i 10 miast algorytm był w stanie w dość krótkim czasie wskazać optymalne rozwiązanie.\
 Dla zbioru 47 miast algorytm w trakcie 300 iteracji oraz 30 mrówek na miasto, nie był w stanie wskazać najbardziej optymalnego znanego rozwiązania. Wynosi ono: 1776, zaś algorytm zwrócił wartość 1805.\
 Dla tego samego zbioru w trakcie 250 iteracji oraz 100 mrówek na miasto, algorytm wskazał rozwiązanie o wartości 1776.
+Dla zbioru 70 mimast w trakcie 250 iteracji oraz 100 mrówek na miasto wskazana trasa ma długość 39655, a optymalna 38673
 \
 Dla przykładów 2-wymiarowych wizualizacje zostały umieszczone poniżej; aby zastosować dwie różne macierze posłużyłem się jedną macierzą, dla dystansu była ona w formie pierwotnej, dla ceny podróży była transponowana.\
 Wszystkie poniższe wizualizacje posiadają domyślne parametry: q = 0.6, $\alpha$ = 1, $\beta$ = 2, $\tau_0$ = 0.1, vaporizeFactor = 0.05, a ilość mrówek to liczba mrówek na miasto. Ponadto są to problemy *niesymetryczne*\
