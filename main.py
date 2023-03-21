@@ -103,7 +103,7 @@ for k in tqdm(range(maxCycle), ascii=True, desc="Main"):
                 destinationCity = avalaibleCities[list(probabilityVector).index(np.max(probabilityVector))]
             ant.currentCity = destinationCity
             ant.tabooList.append(destinationCity)
-            newLocalPheromone[ant.tabooList[-2]][ant.tabooList[-1]] = localPheromone[ant.tabooList[-2]][ant.tabooList[-1]] + vaporizeFactor*pheromoneZero
+            newLocalPheromone[ant.tabooList[-2]][ant.tabooList[-1]] +=  vaporizeFactor*pheromoneZero
         localPheromone = np.copy(newLocalPheromone)
             
     ## check that all roads are the same and add pheromone
