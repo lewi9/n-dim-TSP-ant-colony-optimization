@@ -1,5 +1,4 @@
-# n-dimensions asymetric traveling salesman problem (ATSP) solved by ant-colony system
-
+# n-dimensions asymetric traveling salesman problem (ATSP) solved by ACO
 LANGUAGE=POLISH
 
 ## Opis problemu
@@ -15,7 +14,7 @@ Przykład macierzy:\
 Gdzie wiersze i kolumny odpowiadają kolejnym miastom, zatem dystans pomiędzy miastem numer 0 i 3 będzie miał wartość 490.
 
 ## Działanie algorytmu
-Algorytm ten jest system mrowiskowym, gdzie pewna populacja m-mrówek przeszukuje przestrzeń możliwych rozwiązań, pozostawiając za sobą ślad feromonowy. Jeśli przestrzeń rozwiązań jest grafem skierowanym, wierzchołki symbolizują miasta, to ślad feromonowo będzie się odkładał na krawędziach łączących dwa wierzchołki. Każda mrówka staje przed wyborem kolejnego miasta do którego się uda, destynacja obierana jest na podstawie wartości kosztu takiej podróży (minimalizacja n-wartości np. dystansu, ceny) oraz śladu feromonowego. Odwiedzone już miasta dodawane są do listy tabu, zatem mrówka może wybierać tylko miasta jeszcze nieodwiedzone. Po każdym takim przejściu odkłada się pewna ilość feromonu (feromon lokalny), zaś po całym cyklu (m-mrówek przejdzie przez k-miast) rozwiązania dotychczas najbardziej optymalne premiowane są dodatkową porcją śladu feromonowego (feromon globalny). Po wykonaniu i-cykli algorytm kończy działanie i zwracany zbiór optymalnych rozwiązań. Jeżeli n równa się 1, to wtedy jest to klasyczny problem komiwojażera.
+Algorytm ten jest algorytmem mrowiskowym, gdzie pewna populacja m-mrówek przeszukuje przestrzeń możliwych rozwiązań, pozostawiając za sobą ślad feromonowy. Jeśli przestrzeń rozwiązań jest grafem skierowanym, wierzchołki symbolizują miasta, to ślad feromonowo będzie się odkładał na krawędziach łączących dwa wierzchołki. Każda mrówka staje przed wyborem kolejnego miasta do którego się uda, destynacja obierana jest na podstawie wartości kosztu takiej podróży (minimalizacja n-wartości np. dystansu, ceny) oraz śladu feromonowego. Odwiedzone już miasta dodawane są do listy tabu, zatem mrówka może wybierać tylko miasta jeszcze nieodwiedzone. Po każdym takim przejściu odkłada się pewna ilość feromonu (feromon lokalny), zaś po całym cyklu (m-mrówek przejdzie przez k-miast) rozwiązania dotychczas najbardziej optymalne premiowane są dodatkową porcją śladu feromonowego (feromon globalny). Po wykonaniu i-cykli algorytm kończy działanie i zwracany zbiór optymalnych rozwiązań. Jeżeli n równa się 1, to wtedy jest to klasyczny problem komiwojażera.
 
 ### Kilka kroków opisujących działanie algorytmu:
 
